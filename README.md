@@ -7,7 +7,15 @@
 
 ## Ionic Framework - Framework für hybride Apps
 
-## Cordova - Zugang zu nativen Funktionen über Javascript
+## Cordova - Zugang zu nativen Funktionen über Javascript, Erzeugen der apk
+
+### Installation
+
+* Voraussetzung: git, Java, Android SDK, nodejs
+
+'''
+sudo npm install -g cordova
+'''
 
 
 ## Lizenz
