@@ -3,7 +3,16 @@
 * native App - erstellt mit Android Studio (Java)
 * hybride App - erstellt mit AngularJS, Ionic Framework (HTML, CSS, Javascript) und Cordova
 
-## AngularJS - Javascript-Framework
+## AngularJS - Javascript-Framework zur Erstellung von Single-Page Applications (SPA)
+
+Scope - Gültigkeitsbereich - Verbindung zwischen Controller und Template
+$rootScope - Wurzelscope - umfasst alle Kinder-Scopes (die gesamte Anwendung)
+$scope - normaler Scope
+$scope.$apply() - ruft Aktualisierungszyklus auf
+$scope.$digest() - Aktualisierungszyklus
+
+* [Die erste App](beispiele/ersteApp.html)
+* [Die erste App mit Controller](beispiele/ersteApp_mit_controller.html)
 
 ## Ionic Framework - Framework für hybride Apps
 
@@ -16,6 +25,42 @@
 '''
 sudo npm install -g cordova
 '''
+
+### Anwendung
+
+'''
+# Projekt erzeugen - cordova create Ordner AppID AppName
+cordova create Hallo com.beispiel.hallo Hallo
+'''
+
+Projektordnerstruktur: hooks, platforms, plugins, res, www (App in HTML), config.xml (Projekteinstellungen)
+
+'''
+# Platform Android hinzufügen
+cordova platform add android 
+
+# Platform Android entfernen
+cordova platform remove android
+
+# im Netzwerk zur Verfügung stellen http://localhost:8000
+cordova serve android
+
+# Emulator starten
+cordova emulate android
+
+# Plugin suchen
+cordova plugin search x
+
+# Plugin hinzufügen
+cordova plugin add x
+
+# Plugin entfernen
+cordova plugin remove x
+
+# App erstellen
+cordova build android
+'''
+
 
 
 ## Lizenz
