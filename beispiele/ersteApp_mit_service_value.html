@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <meta charset="utf-8">
+  <title>erste App mit Service Value</title>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+  <script>
+	var ersteApp = angular.module("ersteApp", []);	/* Modul erzeugen - Modul umfasst alle Teile der App */
+    
+	/* Service ist eine Ansammlung von Funktionen und Daten die von mehreren Controllern genutzt werden können */
+
+	ersteApp.controller("ersteController", ["$scope","wert", function ($scope, wert) {	// $scope und $wert sind Abhängigkeit
+		wert.vname = "Tim";
+		$scope.wert = wert;
+	}]);
+	ersteApp.value("wert", {	// Service Value einsetzen, Name ist wert, um Werte zu speichern, diese Werte können von allen Controllern genutzt werden
+		vname: "Jerry"
+	});
+	
+
+  </script>
+
+</head>
+<body ng-app="ersteApp">	<!-- Verbindet body-Tag mit dem Modul -->
+
+	<div ng-controller="ersteController">
+		{{ wert }}
+	</div>
+	
+</body>
+</html>
