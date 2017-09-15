@@ -20,6 +20,7 @@ $scope.$digest() - Aktualisierungszyklus
 * [Die erste App mit http get](beispiele/ersteApp_mit_http_get.html)
 * [Die erste App mit Service Provider](beispiele/ersteApp_mit_service_provider.html)
 * [Die erste App mit Service Constant](beispiele/ersteApp_mit_service_constant.html)
+* [Die erste App mit Direktive](beispiele/ersteApp_mit_directive.html)
 
 ## Ionic Framework - Framework für hybride Apps
 
