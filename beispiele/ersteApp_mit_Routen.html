@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <meta charset="utf-8">
+  <title>erste App mit Routen</title>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.6.6/angular-route.js"></script> <!-- Modul Route einbinden -->
+
+  <script>
+	var ersteApp = angular.module("ersteApp", ["ngRoute"]);	/* Modul erzeugen - mit ngRoute */
+    
+	ersteApp.controller("zweiteController", ["$scope", "$routeParams", function($scope, $routeParams) {	/* Controller */
+		$scope.id = $routeParams.id;	/* Routenparameter benutzen */
+
+		/* $route 
+			updateParams - Parameter ändern
+			reload - Route neu laden
+			current - Infos über die Route
+			routes - alle Routen
+		*/
+		/* $location
+			path - aktuelle relative URL, URL ändern
+			url - aktuelle relative URL, URL ändern
+			absUrl - komplette URL
+			replace - URL ändern
+			host - Host
+			port - Port
+			protocol - Protokoll */ 
+	}]);
+
+	ersteApp.controller("ersteController", ["$scope", function($scope) {	/* Controller */
+		$scope.ersterWert = "Hi";
+	}]);
+
+	ersteApp.config(function($routeProvider) {	/* Routen definieren */
+		$routeProvider
+			.when("/", {
+				templateUrl: "template_route.html",	/* Template-Datei für Route */
+				controller: "ersteController"	/* Controller für Route */
+			})
+			.when("/start/:id", {	/* Route mit Parameter */
+				template: "<sup>{{id}}</sup>",	/* Template für Route */
+				controller: "zweiteController"	/* Controller für Route */
+			})
+			.when("/route", {	/* Weitere Route definieren */
+				template: "<i>Test</i>"	/* Template für Route */
+			})
+			.otherwise("/");	// Standard, Route bei ungültiger URL
+	});
+
+  </script>
+
+</head>
+<body ng-app="ersteApp">	<!-- Verbindet body-Tag mit dem Modul -->
+	<ng-view></ng-view>		<!-- Inhalt wird je nach Route angezeigt -->
+	<a ng-href="#!">Start</a>	<!-- Routen-Links -->
+	<a ng-href="#!start/1">Start 2</a>
+	<a ng-href="#!route">Route</a>
+</body>
+</html>
