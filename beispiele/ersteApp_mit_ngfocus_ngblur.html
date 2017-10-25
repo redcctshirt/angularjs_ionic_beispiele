@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <meta charset="utf-8">
+  <title>erste App mit ngfocus, ngblur</title>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+  <script>
+	var ersteApp = angular.module("ersteApp", []);	/* Modul erzeugen - Modul umfasst alle Teile der App */
+    
+	/* eigener Scope ist für Controller vorhanden, Controller beinhaltet Variablen und Funktionen
+	Controller wird durch ng-controller mit einem DOM-Knoten verbunden */
+
+	ersteApp.controller("ersteController", function ($scope) {
+		$scope.fokus = false;
+		$scope.ersteVariable = 0;	// Variable deklarieren
+		$scope.ersteFunktion = function() { $scope.ersteVariable += 1; };  // Funktion definieren
+	});
+	
+
+  </script>
+
+</head>
+<body ng-app="ersteApp">	<!-- Verbindet body-Tag mit dem Modul -->
+ erste App
+
+	<div ng-controller="ersteController">
+		<form>
+			{{ersteModel}} Änderungen: {{ersteVariable}} Fokus: {{fokus}}
+			<input type="text" ng-model="ersteModel" ng-change="ersteFunktion()" ng-focus="fokus = true" ng-blur="fokus = false">	<!-- ng-model - Variable für Feld bestimmen --> <!-- ng-change - Funktion bei Änderung ausführen -->
+			<!-- ng-focus - Ausführen bei Element fokussieren, ng-blur - Ausführen bei Fokus entfernen -->
+		</form>
+	</div>
+
+</body>
+</html>

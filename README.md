@@ -34,6 +34,11 @@ $scope.$digest() - Aktualisierungszyklus
 * [Die erste App mit ngrepeat 4](beispiele/ersteApp_mit_ngrepeat4.html)
 * [Die erste App mit ngrepeat 5](beispiele/ersteApp_mit_ngrepeat5.html)
 * [Die erste App mit nginit](beispiele/ersteApp_mit_nginit.html)
+* [Die erste App mit ngsubmit](beispiele/ersteApp_mit_ngsubmit.html)
+* [Die erste App mit ngmodel](beispiele/ersteApp_mit_ngmodel.html)
+* [Die erste App mit ngchange](beispiele/ersteApp_mit_ngchange.html)
+* [Die erste App mit ngfocus, ngblur](beispiele/ersteApp_mit_ngfocus_ngblur.html)
+* [Die erste App mit ngdisabled](beispiele/ersteApp_mit_ngdisabled.html)
 
 ## Ionic Framework - Framework für hybride Apps
 
