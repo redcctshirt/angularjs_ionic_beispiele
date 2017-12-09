@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <meta charset="utf-8">
+  <title>erste App mit Events</title>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+  <script>
+	var ersteApp = angular.module("ersteApp", []);	/* Modul erzeugen - Modul umfasst alle Teile der App */
+    
+	/* eigener Scope ist für Controller vorhanden, Controller beinhaltet Variablen und Funktionen
+	Controller wird durch ng-controller mit einem DOM-Knoten verbunden */
+
+	ersteApp.controller("ersteController", function ($scope) {
+		$scope.$on("erstesEvent", function (event, daten) {	// Auf Event lauschen
+			$scope.ersteDaten = daten;
+		});
+	});
+	ersteApp.controller("zweiterController", function($scope) {
+		$scope.sendedieEvents = function() {
+			$scope.$emit("erstesEvent", {	// Ereignis, das an alle Eltern-Scopes weitergeleitet wird
+				"bereit": true
+			});
+			$scope.$broadcast("zweitesEvent", { // Ereignis, das an alle Kinder-Scopes weitergeleitet wird
+				"bereit": true
+			});
+		};
+	});
+	
+		
+
+  </script>
+
+</head>
+<body ng-app="ersteApp">	<!-- Verbindet body-Tag mit dem Modul -->
+ erste App
+
+	<div ng-controller="ersteController">
+		{{ ersteDaten }} <!-- Ausgabe der Variable -->
+
+		<div ng-controller="zweiterController">
+		<button ng-click="sendedieEvents()">Klick</button>	<!-- Funktion ausführen -->
+		</div>
+	</div>
+
+	<!-- Routenevents: $routeChangeStart, $routeChangeSuccess, $routeChangeError, $routeUpdate -->
+
+</body>
+</html>
